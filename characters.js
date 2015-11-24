@@ -17,11 +17,14 @@ var zilla = {
   special_attack: {
     type: "special",
     name: "Tidal Wave",
-    power: 2000,
+    power: 5000,
     chance: .05,
   },
   defense: 6,
-  health: 250
+  health: 2500,
+  last_words_win: "That's what I'm talking about!",
+  last_words_loss: "Nooo!",
+  role: "none"
 };
 
 var kong = {
@@ -43,9 +46,12 @@ var kong = {
   special_attack: {
     type: "special",
     name: "Body Slam",
-    power: 2000,
+    power: 5000,
     chance: .05,
   },
   defense: 8,
-  health: 200
+  health: 2000,
+  last_words_win: "Kong win!",
+  last_words_loss: "How did Kong lose?!",
+  role: "none"
 };

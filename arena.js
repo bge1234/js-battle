@@ -1,8 +1,20 @@
 function fight(attacker, defender) {
+  attacker.role = attacker;
+  defender.role = defender;
+
   console.log("Fight: " + attacker.name + " vs. " + defender.name);
+
   var attackType = selectAttack(attacker);
   var damage = damageCalc(attacker, defender, attackType);
   subtractHealth(defender, damage);
+
+  if (defender.health === 0) {
+    console.log(attacker.name + " says, \"" + attacker.last_words_win + "\"")
+    console.log(defender.name + " says, \"" + defender.last_words_loss + "\"")
+  }
+  else
+    fight(defender,attacker);
+
   return;
 }
 
@@ -121,9 +133,4 @@ function effectiveness(attackerType, defenderType) {
       return 1;
     }
   }
-}
-
-function resetKongHealth() {
-  kong.health = 200;
-  return;
 }
