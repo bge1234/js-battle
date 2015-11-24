@@ -18,9 +18,9 @@ Your mission is to create an arena where two characters battle.  Each character 
 ```
 damage = 50 * (attack/defense) * effectiveness
 ```
-- attack = an attack value
-- defense = the opponent's defense value
-- effectiveness = the effectiveness of the attack based on the type matchup (see explanation below)
+	* attack = an attack value
+	* defense = the opponent's defense value
+	* effectiveness = the effectiveness of the attack based on the type matchup (see explanation below)
 
 * Attacks can be super effective, neutral, or not very effective depending on the matchup. For example, water would be super effective against fire, but not very effective against grass.
 ```
