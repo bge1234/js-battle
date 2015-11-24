@@ -18,6 +18,7 @@ Your mission is to create an arena where two characters battle.  Each character 
 ```
 damage = 50 * (attack/defense) * effectiveness
 ```
+*
 	* attack = an attack value
 	* defense = the opponent's defense value
 	* effectiveness = the effectiveness of the attack based on the type matchup (see explanation below)
