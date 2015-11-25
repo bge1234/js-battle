@@ -1,3 +1,10 @@
+//Todo:
+  // Use HTML forms to add new characters to the arena
+  // Have buttons that can initiate attacks
+  // Take attack input from user each turn
+  // Have images to represent characters and attacks
+  // Use CSS to have the arena look like a Gameboy (screen, A button, B button, Start, and numpad)
+
 var fightButton =  document.getElementById("fight");
 fightButton.addEventListener("click", start);
 
@@ -33,8 +40,10 @@ function fight(attacker, defender) {
     paster(attacker.name + " says, \"" + attacker.last_words_win + "\"");
     paster(defender.name + " says, \"" + defender.last_words_loss + "\"");
   }
-  else
+  else {
+    newSection();
     fight(defender,attacker);
+  }
 
   return;
 }
@@ -160,5 +169,18 @@ function paster(nextItem) {
 	var node = document.createElement("li");
 	var textnode = document.createTextNode(nextItem);
 	node.appendChild(textnode);
+	document.getElementById("fightOutput").appendChild(node);
+
+	var node = document.createElement("br");
+	document.getElementById("fightOutput").appendChild(node);
+};
+
+function newSection() {
+	var node = document.createElement("li");
+	var textnode = document.createTextNode("===================================");
+	node.appendChild(textnode);
+	document.getElementById("fightOutput").appendChild(node);
+
+	var node = document.createElement("br");
 	document.getElementById("fightOutput").appendChild(node);
 };
