@@ -1,3 +1,8 @@
+function resetHealth() {
+  zilla.health = 2500;
+  kong.health = 2000;
+}
+
 function fight(attacker, defender) {
   attacker.role = attacker;
   defender.role = defender;
@@ -19,11 +24,11 @@ function fight(attacker, defender) {
 }
 
 function selectAttack(attacker) {
-  if (Math.random() <= .33) {
+  if (Math.random() <= .4) {
     console.log(attacker.name + " used " + attacker.attack1.name);
     return "one";
   }
-  else if (Math.random() > .33 && Math.random() <= .67) {
+  else if (Math.random() > .4 && Math.random() <= .95) {
     console.log(attacker.name + " used " + attacker.attack2.name);
     return "two";
   }

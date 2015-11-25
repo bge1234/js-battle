@@ -12,7 +12,7 @@ var zilla = {
     type: "two",
     name: "Fire Breath",
     power: 80,
-    chance: .2,
+    chance: .25,
   },
   special_attack: {
     type: "special",
