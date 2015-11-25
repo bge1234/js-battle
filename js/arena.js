@@ -1,21 +1,37 @@
-function resetHealth() {
+var fightButton =  document.getElementById("fight");
+fightButton.addEventListener("click", start);
+
+var resetButton =  document.getElementById("reset");
+resetButton.addEventListener("click", reset);
+
+function start() {
+  fight(zilla,kong);
+  return;
+}
+
+function reset() {
   zilla.health = 2500;
   kong.health = 2000;
+
+  var node = document.getElementById("fightOutput");
+  while (node.firstChild) {
+    node.removeChild(node.firstChild);
+}
 }
 
 function fight(attacker, defender) {
   attacker.role = attacker;
   defender.role = defender;
 
-  console.log("Fight: " + attacker.name + " vs. " + defender.name);
+  paster("Fight: " + attacker.name + " vs. " + defender.name);
 
   var attackType = selectAttack(attacker);
   var damage = damageCalc(attacker, defender, attackType);
   subtractHealth(defender, damage);
 
   if (defender.health === 0) {
-    console.log(attacker.name + " says, \"" + attacker.last_words_win + "\"")
-    console.log(defender.name + " says, \"" + defender.last_words_loss + "\"")
+    paster(attacker.name + " says, \"" + attacker.last_words_win + "\"");
+    paster(defender.name + " says, \"" + defender.last_words_loss + "\"");
   }
   else
     fight(defender,attacker);
@@ -25,15 +41,15 @@ function fight(attacker, defender) {
 
 function selectAttack(attacker) {
   if (Math.random() <= .4) {
-    console.log(attacker.name + " used " + attacker.attack1.name);
+    paster(attacker.name + " used " + attacker.attack1.name);
     return "one";
   }
   else if (Math.random() > .4 && Math.random() <= .95) {
-    console.log(attacker.name + " used " + attacker.attack2.name);
+    paster(attacker.name + " used " + attacker.attack2.name);
     return "two";
   }
   else {
-    console.log(attacker.name + " used " + attacker.special_attack.name);
+    paster(attacker.name + " used " + attacker.special_attack.name);
     return "special";
   }
 }
@@ -49,18 +65,18 @@ function damageCalc(attacker, defender, attackType) {
   else
     damage = (attacker.special_attack.power - defender.defense) * effectivenessMult;
 
-  console.log(damage + " damage was done to " + defender.name);
+  paster(damage + " damage was done to " + defender.name);
   return damage;
 }
 
 function subtractHealth(name, damage) {
   if (damage > name.health) {
     name.health = 0;
-    console.log(name.name + " is dead!");
+    paster(name.name + " is dead!");
   }
   else {
     name.health -= damage;
-    console.log(name.name + "'s remaining health is " + name.health);
+    paster(name.name + "'s remaining health is " + name.health);
   }
   return;
 }
@@ -68,74 +84,81 @@ function subtractHealth(name, damage) {
 function effectiveness(attackerType, defenderType) {
   if (attackerType === "earth") {
     if (defenderType === "earth") {
-      console.log("Earth has normal effectiveness against earth");
+      paster("Earth has normal effectiveness against earth");
       return 1;
     }
     else if (defenderType === "wind") {
-      console.log("Earth has low effectiveness against wind");
+      paster("Earth has low effectiveness against wind");
       return .5;
     }
     else if (defenderType === "water") {
-      console.log("Earth has low effectiveness against water");
+      paster("Earth has low effectiveness against water");
       return .5;
     }
     else {
-      console.log("Earth has high effectiveness against fire");
+      paster("Earth has high effectiveness against fire");
       return 2;
     }
   }
   else if (attackerType === "wind") {
     if (defenderType === "earth") {
-      console.log("Wind has low effectiveness against earth");
+      paster("Wind has low effectiveness against earth");
       return .5;
     }
     else if (defenderType === "wind") {
-      console.log("Wind has normal effectiveness against wind");
+      paster("Wind has normal effectiveness against wind");
       return 1;
     }
     else if (defenderType === "water") {
-      console.log("Wind has high effectiveness against water");
+      paster("Wind has high effectiveness against water");
       return 2;
     }
     else {
-      console.log("Wind has high effectiveness against fire");
+      paster("Wind has high effectiveness against fire");
       return 2;
     }
   }
   else if (attackerType === "water") {
     if (defenderType === "earth") {
-      console.log("Water has high effectiveness against earth");
+      paster("Water has high effectiveness against earth");
       return 2;
     }
     else if (defenderType === "wind") {
-      console.log("Water has low effectiveness against wind");
+      paster("Water has low effectiveness against wind");
       return .5;
     }
     else if (defenderType === "water") {
-      console.log("Water has normal effectiveness against water");
+      paster("Water has normal effectiveness against water");
       return 1;
     }
     else {
-      console.log("Water has high effectiveness against fire");
+      paster("Water has high effectiveness against fire");
       return 2;
     }
   }
   else {
     if (defenderType === "earth") {
-      console.log("Fire has low effectiveness against earth");
+      paster("Fire has low effectiveness against earth");
       return .5;
     }
     else if (defenderType === "wind") {
-      console.log("Fire has low effectiveness against wind");
+      paster("Fire has low effectiveness against wind");
       return .5;
     }
     else if (defenderType === "water") {
-      console.log("Fire has low effectiveness against water");
+      paster("Fire has low effectiveness against water");
       return .5;
     }
     else {
-      console.log("Fire has normal effectiveness against fire");
+      paster("Fire has normal effectiveness against fire");
       return 1;
     }
   }
 }
+
+function paster(nextItem) {
+	var node = document.createElement("li");
+	var textnode = document.createTextNode(nextItem);
+	node.appendChild(textnode);
+	document.getElementById("fightOutput").appendChild(node);
+};
