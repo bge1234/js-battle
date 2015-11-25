@@ -2,16 +2,14 @@
   // Use HTML forms to add new characters to the arena
   // Have buttons that can initiate attacks
   // Take attack input from user each turn
-  // Have images to represent characters and attacks
+  // Have images to represent characters (incl. stats) and attacks
   // Use CSS to have the arena look like a Gameboy (screen, A button, B button, Start, and numpad)
 
 var fightButton =  document.getElementById("fight");
 fightButton.addEventListener("click", start);
 
-var resetButton =  document.getElementById("reset");
-resetButton.addEventListener("click", reset);
-
 function start() {
+  reset();
   fight(zilla,kong);
   return;
 }
