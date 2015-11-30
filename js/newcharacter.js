@@ -1,21 +1,7 @@
 var button = document.getElementById("send");
-
 button.addEventListener("click", addNewCharacter);
 
 function addNewCharacter() {
-  var newCharacterName = document.getElementById("name");
-  var newCharacterType = document.getElementById("type");
-  var newCharacterAttack1Name = document.getElementById("attack1name");
-  var newCharacterAttack1Power = document.getElementById("attack1power");
-  var newCharacterAttack2Name = document.getElementById("attack2name");
-  var newCharacterAttack2Power = document.getElementById("attack2power");
-  var newCharacterSpecialAttackName = document.getElementById("specialattackname");
-  var newCharacterSpecialAttackPower = document.getElementById("specialattackpower");
-  var newCharacterDefense = document.getElementById("defense");
-  var newCharacterHealth = document.getElementById("health");
-  var newCharacterLastWordsWin = document.getElementById("lastwordswin");
-  var newCharacterLastWordsLoss = document.getElementById("lastwordsloss");
-
   var newCharacter = {
     name: "Godzilla",
     type: "water",
@@ -44,6 +30,19 @@ function addNewCharacter() {
     role: "none"
   };
 
+  var newCharacterName = document.getElementById("name");
+  var newCharacterType = document.getElementById("type");
+  var newCharacterAttack1Name = document.getElementById("attack1name");
+  var newCharacterAttack1Power = document.getElementById("attack1power");
+  var newCharacterAttack2Name = document.getElementById("attack2name");
+  var newCharacterAttack2Power = document.getElementById("attack2power");
+  var newCharacterSpecialAttackName = document.getElementById("specialattackname");
+  var newCharacterSpecialAttackPower = document.getElementById("specialattackpower");
+  var newCharacterDefense = document.getElementById("defense");
+  var newCharacterHealth = document.getElementById("health");
+  var newCharacterLastWordsWin = document.getElementById("lastwordswin");
+  var newCharacterLastWordsLoss = document.getElementById("lastwordsloss");
+
   newCharacter.name = newCharacterName.value;
   newCharacter.type = newCharacterType.value;
   newCharacter.attack1.type = "one";
@@ -60,11 +59,7 @@ function addNewCharacter() {
   newCharacter.last_words_win = newCharacterLastWordsWin.value;
   newCharacter.last_words_loss = newCharacterLastWordsLoss.value;
   newCharacter.role = "none";
-  characters.push(newCharacter);
-
-  console.log("newCharacter = " + newCharacter);
-  console.log("characters = " + characters);
-  console.log("characters[characters.length-1] = " + characters[characters.length-1]);
-
   //window.open ("index.html");
-}
+  characters.push(newCharacter);
+  console.log(characters[characters.length - 1]);
+};
