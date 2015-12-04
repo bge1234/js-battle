@@ -63,5 +63,5 @@ function addNewCharacter() {
   localStorage.setItem(newCharacterName.value, JSON.stringify(newCharacter));
   //Todo:
     //Check that character doesn't exist before trying to add it.
-    //Modify fight function to allowe choosing of charaters who will fight.
+    //Modify fight function to allow choosing of characters who will fight. First need to modify it to point to local storage instead of characters.js.
 };
