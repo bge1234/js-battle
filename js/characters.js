@@ -55,3 +55,7 @@ var characters = [
     role: "none"
   }
 ];
+
+for(var i = 0; i < characters.length; i++) {
+  localStorage.setItem(characters[i]["name"], JSON.stringify(characters[i]));
+}

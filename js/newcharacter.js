@@ -59,7 +59,9 @@ function addNewCharacter() {
   newCharacter.last_words_win = newCharacterLastWordsWin.value;
   newCharacter.last_words_loss = newCharacterLastWordsLoss.value;
   newCharacter.role = "none";
-  //window.open ("index.html");
-  characters.push(newCharacter);
-  console.log(characters[characters.length - 1]);
+  window.open ("index.html");
+  localStorage.setItem(newCharacterName.value, JSON.stringify(newCharacter));
+  //Todo:
+    //Check that character doesn't exist before trying to add it.
+    //Modify fight function to allowe choosing of charaters who will fight.
 };
