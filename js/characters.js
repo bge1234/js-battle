@@ -1,5 +1,5 @@
-var characters = [
-  char1 = {
+var builtinCharacters = [
+  {
     name: "Godzilla",
     type: "water",
     attack1: {
@@ -26,8 +26,7 @@ var characters = [
     last_words_loss: "Nooo!",
     role: "none"
   },
-
-  char2 = {
+  {
     name: "King Kong",
     type: "earth",
     attack1: {
@@ -56,6 +55,6 @@ var characters = [
   }
 ];
 
-for(var i = 0; i < characters.length; i++) {
-  localStorage.setItem(characters[i]["name"], JSON.stringify(characters[i]));
+for(var i = 0; i < builtinCharacters.length; i++) {
+  localStorage.setItem(builtinCharacters[i]["name"], JSON.stringify(builtinCharacters[i]));
 }

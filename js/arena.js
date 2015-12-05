@@ -1,20 +1,41 @@
+var att = {};
+var def = {};
+var attacker = "";
+var defender = "";
+
 var fightButton =  document.getElementById("fight");
 fightButton.addEventListener("click", start);
 
 function start() {
-  reset();
-  fight(characters[0],characters[1]);
+  resetStage();
+
+  if(document.getElementById("userAttacker").value === "") {
+    attacker = "Godzilla";
+  }
+  else {
+    attacker = document.getElementById("userAttacker").value;
+  }
+  if(document.getElementById("userDefender").value === "") {
+    defender = "King Kong";
+  }
+  else {
+    defender = document.getElementById("userDefender").value;
+  }
+
+  console.log(attacker);
+  console.log(defender);
+
+  att = JSON.parse(localStorage.getItem(attacker));
+  def = JSON.parse(localStorage.getItem(defender));
+  fight(att, def);
   return;
 }
 
-function reset() {
-  characters[0].health = 2500;
-  characters[1].health = 2000;
-
+function resetStage() {
   var node = document.getElementById("fightOutput");
   while (node.firstChild) {
     node.removeChild(node.firstChild);
-}
+  }
 }
 
 function fight(attacker, defender) {

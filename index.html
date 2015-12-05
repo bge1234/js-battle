@@ -6,8 +6,13 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <button onclick="window.location.href='newcharacter.html'">Input new character</button>
+  <p>Please input attacker and defender names.<br>
+    Leaving them blank will use built-in characters,<br>
+    Godzilla and King Kong, respectively.</p>
+  <input id="userAttacker" type="text">
+  <input id="userDefender" type="text"><br><br>
   <input type="submit" id="fight" value="Fight!">
+  <button onclick="window.location.href='newcharacter.html'">Input new character</button>
   <ul id="fightOutput"></ul>
   <script type="text/javascript" src="js/characters.js"></script>
   <script type="text/javascript" src="js/arena.js"></script>
